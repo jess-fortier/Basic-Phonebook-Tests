@@ -1,4 +1,4 @@
 exports.config = {
 	seleniumAddress: 'http://localhost:4444/wd/hub',
-	specs: ['phone-number-spec.js']
+	specs: ['tests/phone-number-spec.js']
 };
