@@ -1,5 +1,5 @@
 var ConfirmationView = function() {
-	this.storedName = element(by.id('stored-name'));
+	this.storedName = element(by.id('saved-name'));
 	this.backButton = element(by.buttonText('Back'));
 
 	this.readName = function() {
