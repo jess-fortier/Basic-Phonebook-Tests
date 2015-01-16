@@ -8,14 +8,31 @@ var EntryView = function() {
 		this.nameField.sendKeys(input);
 		return this;
 	};
+	this.readName = function() {
+		return this.nameField.getValue();
+	}
 	this.enterPhone = function(input) {
 		this.phoneField.sendKeys(input);
 		return this;
 	};
+	this.readPhone = function() {
+		return this.phoneField.getValue();
+	}
 	this.clickSave = function() {
 		this.saveButton.click();
 		return require('./ConfirmationView.js');
 	};
+	this.deleteIsVisible = function() {
+		return this.deleteButton.isPresent();
+	};
+	this.clickDelete = function() {
+		this.deleteButton.click();
+		return this;
+	};
+	this.clearFields = function() {
+		if (this.deleteIsVisible()) this.clickDelete();
+		return this;
+	}
 };
 
 module.exports = new EntryView();
