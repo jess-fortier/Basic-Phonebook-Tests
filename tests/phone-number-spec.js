@@ -4,7 +4,7 @@
  */
 describe('phone number field', function() {
 	var phoneValues = require('./test-data.js').phoneField;
-	var validName = require('./test-data.js').nameField.valid[0];
+	var validName = require('./test-data.js').nameField.valid['is alpha only'];
 	var view;
 
 	/**
