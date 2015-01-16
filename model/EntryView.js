@@ -9,14 +9,14 @@ var EntryView = function() {
 		return this;
 	};
 	this.readName = function() {
-		return this.nameField.getValue();
+		return this.nameField.getAttribute('value');
 	}
 	this.enterPhone = function(input) {
 		this.phoneField.sendKeys(input);
 		return this;
 	};
 	this.readPhone = function() {
-		return this.phoneField.getValue();
+		return this.phoneField.getAttribute('value');
 	}
 	this.clickSave = function() {
 		this.saveButton.click();
