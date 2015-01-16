@@ -30,7 +30,8 @@ var EntryView = function() {
 		return this;
 	};
 	this.clearFields = function() {
-		if (this.deleteIsDisplayed()) this.clickDelete();
+		this.nameField.clear();
+		this.phoneField.clear();
 		return this;
 	}
 };

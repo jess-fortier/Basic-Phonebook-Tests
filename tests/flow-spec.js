@@ -6,7 +6,7 @@ describe('delete button', function() {
 
 	beforeEach(function() {
 		var ui = require('../model/BasicPhonebookUI.js');
-		entry = ui.go();
+		entry = ui.go().clearFields();
 	});
 
 	it('does not appear if no data has been entered', function() {
