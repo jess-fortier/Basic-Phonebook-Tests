@@ -5,6 +5,16 @@
 describe('phone number field', function() {
 
 	/**
+	 * Here's the same test without any model funny business
+	 */
+	it('is not saved when input has plobrems', function(){
+		element(by.model('entryName')).sendKeys('valid name');
+		element(by.model('phoneNumber')).sendKeys('0352878765');
+		expect(element(by.buttonText('Save')).getAttribute('disabled')).toBe('true');
+	});
+	
+
+	/**
 	 * Test data for all known negative cases.
 	 * Credit for the implemented parameterization strategy:
 	 * http://blog.freeside.co/2013/05/21/parameterized-specs-with-jasmine/
