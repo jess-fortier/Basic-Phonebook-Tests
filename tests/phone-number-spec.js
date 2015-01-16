@@ -3,21 +3,8 @@
  * and that the form responds correctly to validation results.
  */
 describe('phone number field', function() {
-
-	
-
-	/**
-	 * Test data for all known negative cases.
-	 * Credit for the implemented parameterization strategy:
-	 * http://blog.freeside.co/2013/05/21/parameterized-specs-with-jasmine/
-	 * TODO: Would be nice to centralize test data
-	 */
-	var negative_test_data = {
-		'too few digits': '123456789',
-		'leading zero': '0123456789',
-		'too many digits': '123456789123'
-	}//TODO programmatically add cases for unsupported punctuation and alphabetical characters
-
+	var phoneValues = require('./test-data.js').phoneField;
+	var validName = require('./test-data.js').nameField.valid[0];
 	var view;
 
 	/**
@@ -34,9 +21,9 @@ describe('phone number field', function() {
 	/**
 	 * All negative cases result in a disabled Save button
 	 */
-	for (datum in negative_test_data) {
-		it('does not enable save when input has ' + datum, function(){
-			view = view.enterPhone(negative_test_data[datum]);
+	for (value in phoneValues.invalid) {
+		it('does not enable save when input ' + value, function(){
+			view = view.enterPhone(phoneValues.invalid[value]);
 			expect(view.saveButton.getAttribute('disabled')).toBe('true');
 		});
 	}
