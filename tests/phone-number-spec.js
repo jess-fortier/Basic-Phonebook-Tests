@@ -9,8 +9,8 @@ describe('phone number field', function() {
 
 	/**
 	 * All tests should be conducted on the same environment,
-	 * using a known-valid value for other fields to isolate
-	 * cause of failure to the component under test.
+	 * using consistent known-valid values for other fields to
+	 * isolate cause of failure to the component under test.
 	 */
 	beforeEach(function() {
 		var ui = require('../model/BasicPhonebookUI.js');
@@ -21,10 +21,14 @@ describe('phone number field', function() {
 	/**
 	 * All negative cases result in a disabled Save button
 	 */
-	for (value in phoneValues.invalid) {
-		it('does not enable save when input ' + value, function(){
-			view = view.enterPhone(phoneValues.invalid[value]);
-			expect(view.saveButton.getAttribute('disabled')).toBe('true');
-		});
-	}
+	for (entry in phoneValues.invalid) {
+		var input = phoneValues.invalid[entry];
+
+		(function(desc, val){
+			it('does not enable save when input ' + desc + ': ' + val, function(){
+				view = view.enterPhone(val);
+				expect(view.saveButton.getAttribute('disabled')).toBe('true');
+			});
+		}) (entry, input);
+	};
 });
