@@ -31,4 +31,18 @@ describe('phone number field', function() {
 			});
 		}) (entry, input);
 	};
+	
+	/**
+	 * All positive cases result in an enabled Save button
+	 */
+	for (entry in phoneValues.valid) {
+		var input = phoneValues.valid[entry];
+
+		(function(desc, val){
+			it('enables save when input ' + desc + ': ' + val, function(){
+				view = view.enterPhone(val);
+				expect(view.saveButton.getAttribute('disabled')).not.toBe('true');
+			});
+		}) (entry, input);
+	};
 });
