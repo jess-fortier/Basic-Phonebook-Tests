@@ -13,8 +13,7 @@ var testData = {
 		valid: {
 			'is alpha only': 'foo',
 			'is alphanumeric': '1337h4x',
-			'contains spaces': 'Jane Doe',
-			'contains symbols': 'John O\'Connor (M.D.)'
+			'contains spaces and symbols': 'John O\'Connor (M.D.)'
 		}
 	},
 
