@@ -1,5 +1,5 @@
 /**
- * Confirm that the phone number field validation works as intended,
+ * Confirm that the name field validation works as intended,
  * and that the form responds correctly to validation results.
  */
 describe('phone number field', function() {
