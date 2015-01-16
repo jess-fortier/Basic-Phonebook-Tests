@@ -11,7 +11,11 @@ var EntryView = function() {
 	this.enterPhone = function(input) {
 		this.phoneField.sendKeys(input);
 		return this;
-	}
+	};
+	this.clickSave = function() {
+		this.saveButton.click();
+		return require('./ConfirmationView.js');
+	};
 };
 
 module.exports = new EntryView();
