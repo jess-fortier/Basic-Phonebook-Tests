@@ -4,14 +4,6 @@
  */
 describe('phone number field', function() {
 
-	/**
-	 * Here's the same test without any model funny business
-	 */
-	it('is not saved when input has plobrems', function(){
-		element(by.model('entryName')).sendKeys('valid name');
-		element(by.model('phoneNumber')).sendKeys('0352878765');
-		expect(element(by.buttonText('Save')).getAttribute('disabled')).toBe('true');
-	});
 	
 
 	/**
@@ -21,8 +13,8 @@ describe('phone number field', function() {
 	 * TODO: Would be nice to centralize test data
 	 */
 	var negative_test_data = {
-		// 'too few digits': '123456789',
-		// 'leading zero': '0123456789',
+		'too few digits': '123456789',
+		'leading zero': '0123456789',
 		'too many digits': '123456789123'
 	}//TODO programmatically add cases for unsupported punctuation and alphabetical characters
 
