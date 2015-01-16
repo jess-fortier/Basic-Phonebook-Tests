@@ -23,14 +23,14 @@ var EntryView = function() {
 		return require('./ConfirmationView.js');
 	};
 	this.deleteIsVisible = function() {
-		return this.deleteButton.isPresent();
+		return this.deleteButton.isDisplayed();
 	};
 	this.clickDelete = function() {
 		this.deleteButton.click();
 		return this;
 	};
 	this.clearFields = function() {
-		if (this.deleteIsVisible()) this.clickDelete();
+		if (this.deleteIsDisplayed()) this.clickDelete();
 		return this;
 	}
 };
