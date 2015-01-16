@@ -25,5 +25,17 @@ describe('delete button', function() {
 			.clickSave()
 			.clickBack();
 		expect(entry.deleteIsVisible()).toBe(true);
-	})
+	});
+
+	it('clears the fields when clicked', function() {
+		entry = entry
+			.enterName(validName)
+			.enterPhone(validPhone)
+			.clickSave() //now displaying confirmation view
+			.clickBack() //now displaying entry view
+			.clickDelete();
+
+		expect(entry.readName()).toBe('');
+		expect(entry.readPhone()).toBe('');
+	});
 })
