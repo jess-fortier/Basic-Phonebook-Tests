@@ -35,7 +35,7 @@ describe('phone number field', function() {
 	 * All negative cases result in a disabled Save button
 	 */
 	for (datum in negative_test_data) {
-		it('is not saved when input has ' + datum, function(){
+		it('does not enable save when input has ' + datum, function(){
 			view = view.enterPhone(negative_test_data[datum]);
 			expect(view.saveButton.getAttribute('disabled')).toBe('true');
 		});
