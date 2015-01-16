@@ -2,7 +2,7 @@ var ConfirmationView = function() {
 	this.storedName = element(by.id('stored-name'));
 	this.backButton = element(by.buttonText('Back'));
 
-	this.reaName = function() {
+	this.readName = function() {
 		return this.storedName.getText();
 	};
 	this.clickBack = function(input) {
