@@ -11,6 +11,15 @@ var EntryView = function() {
 	this.readName = function() {
 		return this.nameField.getAttribute('value');
 	};
+	this.nameFieldShown = function() {
+		if ( this.nameField.isPresent()) {
+			this.nameField.isDisplayed().then(function (isVisible) {
+				if (isVisible) return true;
+				else return false;
+			})
+		} else return false;
+	};
+
 	this.enterPhone = function(input) {
 	this.phoneField.sendKeys(input);
 	return this;
@@ -18,6 +27,16 @@ var EntryView = function() {
 	this.readPhone = function() {
 		return this.phoneField.getAttribute('value');
 	};
+	this.phoneFieldShown = function() {
+		if ( this.phoneField.isPresent()) {
+			this.phoneField.isDisplayed().then(function (isVisible) {
+				if (isVisible) return true;
+				else return false;
+			})
+		} else return false;
+	};
+
+
 	this.clearFields = function() {
 		this.nameField.clear();
 		this.phoneField.clear();
