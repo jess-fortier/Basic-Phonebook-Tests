@@ -1,21 +1,26 @@
 describe('delete button', function() {
 	var validName = require('./test-data.js').nameField.valid['is alpha only'];
 	var validPhone = require('./test-data.js').phoneField.valid['contains 10 digits'];
+	var ui;
 	var entry;
 	var confirmation;
 
 	beforeEach(function() {
-		var ui = require('../model/BasicPhonebookUI.js');
-		entry = ui.go().clearFields();
+		ui = require('../model/BasicPhonebookUI.js');
+		entry = ui.go().ensureNoSavedData();
+	});
+
+	afterEach(function() {
+		entry = ui.go().ensureNoSavedData();
 	});
 
 	it('does not appear if no data has been entered', function() {
-		expect(entry.deleteIsVisible()).toBe(false);
+		expect(entry.deleteAvailable()).not.toBeTruthy();
 	});
 
 	it('does not appear if data has not been stored', function() {
 		entry = entry.enterName(validName).enterPhone(validPhone);
-		expect(entry.deleteIsVisible()).toBe(false);
+		expect(entry.deleteAvailable()).not.toBeTruthy();
 	});
 
 	it('appears when returning from save confirmation', function() {
@@ -24,18 +29,18 @@ describe('delete button', function() {
 			.enterPhone(validPhone)
 			.clickSave()
 			.clickBack();
-		expect(entry.deleteIsVisible()).toBe(true);
+		expect(entry.deleteAvailable()).toBeTruthy();
 	});
 
 	it('clears the fields when clicked', function() {
 		entry = entry
 			.enterName(validName)
 			.enterPhone(validPhone)
-			.clickSave() //now displaying confirmation view
-			.clickBack() //now displaying entry view
+			.clickSave()
+			.clickBack()
 			.clickDelete();
 
 		expect(entry.readName()).toBe('');
 		expect(entry.readPhone()).toBe('');
 	});
-})
+});
