@@ -14,7 +14,7 @@ describe('phone number field', function() {
 	 */
 	beforeEach(function() {
 		var ui = require('../model/BasicPhonebookUI.js');
-		view = ui.go().clearFields();
+		view = ui.go();
 		view = view.enterPhone(validPhone);
 	});
 	
